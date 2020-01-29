@@ -10,7 +10,7 @@ var upload = multer({dest:'picture/'});
 app.use(body.urlencoded({extended:true}));
 app.use(express.static(__dirname));
 app.set('view engine', 'ejs');
-app.set('port',(process.env.PORT || 5000));
+app.set('port',(process.env.PORT || 8080));
 
 app.get('/',function(req,res){
     res.sendFile('index.html'); 
