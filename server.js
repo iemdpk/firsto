@@ -10,6 +10,7 @@ var upload = multer({dest:'picture/'});
 app.use(body.urlencoded({extended:true}));
 app.use(express.static(__dirname));
 app.set('view engine', 'ejs');
+app.set('port',(process.env.PORT || 5000));
 
 app.get('/',function(req,res){
     res.sendFile('index.html'); 
@@ -31,6 +32,6 @@ app.post('/', upload.array('image',12)  ,function(req,res){
     
 });
 
-app.listen( process.env.PORT || 8080,function(){
+app.listen(app.get('port'),function(){
     console.log("You enter The Same Port");
 })
